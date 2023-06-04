@@ -1,0 +1,256 @@
+// @import "../../css-config/mixins.scss";
+
+// .main-header {
+//     width: 100%;
+//     padding: 0 20px;
+//     z-index: 99;
+//     background-color: #212121;
+//     color: white;
+//     border-bottom: 1px solid;
+//     border-color: rgba(0, 0, 0, 0.1);
+//     @include md {
+//         padding: 0 40px;
+//     }
+//     .header-content {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         height: 50px;
+//         max-width: 1200px;
+//         margin: 0 auto;
+//         @include md {
+//             height: 80px;
+//         }
+//     }
+//     .left {
+//         list-style-type: none;
+//         display: none;
+//         gap: 25px;
+//         @include md {
+//             display: flex;
+//         }
+//         li {
+//             font-size: 14px;
+//             font-weight: 600;
+//             text-transform: uppercase;
+//             cursor: pointer;
+//             &:hover {
+//                 opacity: 0.6;
+//                 zoom: 120%;
+//                 transition: opacity 0.3s ease-in-out;
+//                 transition: zoom 0.3s ease-in-out;
+
+//             }
+//         }
+//     }
+//     .center {
+//         font-size: 22px;
+//         font-weight: 700;
+//         cursor: pointer;
+//         letter-spacing: 2px;
+//         @include md {
+//             font-size: 34px;
+//             position: absolute;
+//             left: 50%;
+//             transform: translateX(-50%);
+//             letter-spacing: 2px;
+//         }
+//         &:hover{
+//             letter-spacing: 0px;
+//             transition: letter-spacing 0.3s ease-in-out;
+//         }
+//     }
+//     .right {
+//         display: flex;
+//         align-items: center;
+//         gap: 20px;
+//         @include md {
+//             gap: 25px;
+//         }
+//         svg {
+//             width: 25px;
+//             height: 25px;
+//             font-size: 20px;
+//             cursor: pointer;
+//             @include md {
+//                 font-size: 24px;
+//             }
+//             &:hover {
+//                 opacity: 0.6;
+//                 zoom: 200%;
+//                 transition: opacity 1s ease-in-out;
+//                 transition: zoom 1s ease-in-out;
+//             }
+//         }
+//         .cart-icon {
+//             position: relative;
+//             span {
+//                 min-width: 20px;
+//                 text-align: center;
+//                 background: #8e2de2;
+//                 padding: 2.5px;
+//                 position: absolute;
+//                 top: -5px;
+//                 right: -12px;
+//                 font-size: 12px;
+//                 line-height: 1;
+//                 border-radius: 10px;
+//             }
+//         }
+//     }
+//     &.sticky-header {
+//         background-color: #212121;
+//         color: white;
+//         position: sticky;
+//         top: 0;
+//         transform: translateY(-60px);
+//         animation: StickyHeader 0.3s ease forwards;
+//     }
+// }
+
+// @keyframes StickyHeader {
+//     0% {
+//         transform: translateY(-60px);
+//     }
+//     100% {
+//         transform: translateY(0);
+//     }
+// }
+
+
+
+// .heart{
+//     zoom: 90%;
+// }
+
+
+@import "../../css-config/mixins.scss";
+
+.main-header {
+    width: 100%;
+    padding: 0 20px;
+    z-index: 99;
+    // background-color: #212121;
+    // background-image: linear-gradient(to left, #9384D1, #C9A7EB);
+    // background-image: linear-gradient(to left, #02AABD, #C9A7EB);
+    // background-image: linear-gradient(to left, #02AABD, #00CDAC);
+    background-image: linear-gradient(to left, #9384D1, #C9A7EB);
+    color: white;
+    border-bottom: 1px solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    @include md {
+        padding: 0 40px;
+    }
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+        @include md {
+            height: 80px;
+        }
+    }
+    .left {
+        list-style-type: none;
+        display: none;
+        gap: 60px;
+        @include md {
+            display: flex;
+        }
+        li {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.6;
+                transform: scale(1.5);
+                transition: opacity 0.3s ease-in-out;
+                transition: transform 0.3s ease-in-out;
+
+            }
+        }
+    }
+    .center {
+        font-size: 22px;
+        font-weight: 700;
+        cursor: pointer;
+        letter-spacing: 2px;
+        @include md {
+            font-size: 34px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            letter-spacing: 2px;
+        }
+        &:hover{
+            letter-spacing: 0px;
+            transition: letter-spacing 0.3s ease-in-out;
+        }
+    }
+    .right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        @include md {
+            gap: 25px;
+        }
+        svg {
+            width: 25px;
+            height: 25px;
+            font-size: 20px;
+            cursor: pointer;
+            @include md {
+                font-size: 24px;
+            }
+            &:hover {
+                opacity: 0.6;
+                transform: scale(1.5);
+                transition: opacity 0.1s ease-in-out;
+                transition: transform 0.1s ease-in-out;
+            }
+        }
+        .cart-icon {
+            position: relative;
+            span {
+                min-width: 20px;
+                text-align: center;
+                background: #8e2de2;
+                padding: 2.5px;
+                position: absolute;
+                top: -5px;
+                right: -12px;
+                font-size: 12px;
+                line-height: 1;
+                border-radius: 10px;
+            }
+        }
+    }
+    &.sticky-header {
+        background-color: #212121;
+        color: white;
+        position: sticky;
+        top: 0;
+        transform: translateY(-60px);
+        animation: StickyHeader 0.3s ease forwards;
+    }
+}
+
+@keyframes StickyHeader {
+    0% {
+        transform: translateY(-60px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.makeWhite{
+    text-decoration: none;
+    color: white;
+}
+
+
+
