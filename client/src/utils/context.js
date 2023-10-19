@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { fetchDataFromApi } from "./api";
 
 export const Context= createContext();
 
@@ -13,7 +14,24 @@ const AppContext =({children})=>{
 
     useEffect(()=>{
         window.scrollTo(0,0)
+        console.log("loc changed")
+
+
+
     },[location])
+    
+    useEffect(()=>{
+    // Assuming fetchDataFromApi returns a promise
+    fetchDataFromApi("/products")
+      .then((data) => {
+        // Update the state with the fetched data
+        setProducts(data);
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the API request
+        console.error("Error fetching data:", error);
+      });
+    },[])
 
 
     useEffect(()=>{

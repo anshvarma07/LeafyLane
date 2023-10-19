@@ -16,8 +16,7 @@ export default function Category() {
   const fetchDataFromApi = async (url) => {
     try {
       const { data } = await axios.get(
-        process.env.REACT_APP_DEV_URL + url,
-        params
+        "https://fakestoreapi.com/products"
       );
       return data;
     } catch (error) {

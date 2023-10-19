@@ -19,18 +19,10 @@ export default function SingleProduct() {
   const [catwithid, setcatwithid] = useState();
   const [quantity,setQuantity]=useState(1)
   const {handleAddtoCart}=useContext(Context)
-  const params = {
-    headers: {
-      Authorization: "bearer " + process.env.REACT_APP_STRIPE_API_KEY,
-    },
-  };
 
   const fetchDataFromApi = async (url) => {
     try {
-      const { data } = await axios.get(
-        process.env.REACT_APP_DEV_URL + url,
-        params
-      );
+      const { data } = await axios.get("https://fakestoreapi.com/products/"+id);
       return data;
     } catch (error) {
       console.log(error);
@@ -52,7 +44,7 @@ export default function SingleProduct() {
     );
   };
   if (!catwithid) return;
-  const product = catwithid.data[0].attributes;
+  const product = catwithid;
 
 
   const inc=()=>{

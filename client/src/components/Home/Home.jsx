@@ -24,6 +24,8 @@ export default function Home() {
       setCategories(res)
     })
   }
+
+  
   const getProducts =()=>{
     fetchDataFromApi("/api/products")
     .then(res => {

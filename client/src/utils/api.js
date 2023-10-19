@@ -1,15 +1,10 @@
 import axios from "axios";
 
-const params ={
-    headers:{
-        Authorization: "bearer " + process.env.REACT_APP_STRIPE_API_KEY,
-    }
-} 
-
 
 export const fetchDataFromApi = async (url) =>{
     try {
-        const {data}= await axios.get(process.env.REACT_APP_DEV_URL + url ,params);
+        const {data}= await axios.get("https://fakestoreapi.com"+url);
+        console.log(data)
         return data;
         
     } catch (error) {
@@ -18,9 +13,3 @@ export const fetchDataFromApi = async (url) =>{
 }
 }
 
-// export const makePaymentRequest = axios.create({
-//     baseURL:process.env.REACT_APP_DEV_URL,
-//     headers:{
-//         Authorization: "bearer " + process.env.REACT_APP_STRIPE_API_KEY,
-//     },
-// })
