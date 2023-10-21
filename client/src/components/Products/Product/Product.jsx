@@ -8,7 +8,7 @@ export default function Product({data}) {
   return (
     
     <div className="product-card" onClick={()=>navigate("/product/" + data.id)}>
-    {console.log(data)}
+    {/* {console.log(data)} */}
       <div className="thumbnail">
         <img src={data.image} alt="" />
       </div>

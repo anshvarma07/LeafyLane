@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useState , useEffect } from 'react';
 import Product from './Product/Product';
 import "./Products.scss";
-import { useContext } from 'react';
-import { Context } from '../../utils/context';
+import { fetchDataFromApi } from '../../utils/api';
 
 export default function Products({innerPage, headingText }) {
-  const { products } = useContext(Context);
+  const [products,setProducts]=useState(null)
 
-  if (products === undefined || !Array.isArray(products)) {
-    // Render a loading state or return null if desired
-    return null;
-  }
+  useEffect(()=>{
+    // Assuming fetchDataFromApi returns a promise
+    fetchDataFromApi("/products")
+      .then((data) => {
+        // Update the state with the fetched data
+        setProducts(data);
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the API request
+        console.error("Error fetching data:", error);
+      });
+    },[])
+
+  // if (products === undefined || !Array.isArray(products)) {
+  //   // Render a loading state or return null if desired
+  //   return null;
+  // }
+
+
 
   return (
     <div className='products-container' id='yahaScrollHo'>

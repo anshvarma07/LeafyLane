@@ -2,6 +2,7 @@ import React, { useEffect, useState,useContext } from "react";
 import "./SingleProduct.scss";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import {fetchDataFromApi} from "../../utils/api"
 
 import {
   FaFacebookF,
@@ -20,23 +21,13 @@ export default function SingleProduct() {
   const [quantity,setQuantity]=useState(1)
   const {handleAddtoCart}=useContext(Context)
 
-  const fetchDataFromApi = async (url) => {
-    try {
-      const { data } = await axios.get("https://fakestoreapi.com/products/"+id);
-      return data;
-    } catch (error) {
-      console.log(error);
-      return error;
-    }
-  };
-
   useEffect(() => {
     getCategories();
     // eslint-disable-next-line
   }, []);
 
   const getCategories = () => {
-    fetchDataFromApi(`/api/products?populate=*&[filters][id]=${id}`).then(
+    fetchDataFromApi("/products/"+id).then(
       (res) => {
         // console.log(res);
         setcatwithid(res);
@@ -44,6 +35,7 @@ export default function SingleProduct() {
     );
   };
   if (!catwithid) return;
+  
   const product = catwithid;
 
 
@@ -61,13 +53,13 @@ export default function SingleProduct() {
       <div className="layout">
         <div className="single-product-page">
           <div className="left">
-            <img src={product.img} alt="" />
+            <img src={product.image} alt="" />
           </div>
           {/* {console.log(catwithid)} */}
           <div className="right">
             <span className="name">{product.title}</span>
-            <span className="price">&#8377;{product.Price}</span>
-            <span className="desc">{product.desc}</span>
+            <span className="price">&#8377;{product.price}</span>
+            <span className="desc">{product.description}</span>
             <div className="cart-buttons">
               <div className="quantity-buttons">
                 <span onClick={dec}>-</span>
@@ -75,7 +67,7 @@ export default function SingleProduct() {
                 <span onClick={inc}>+</span>
               </div>
               <button className="add-to-cart-button" onClick={()=>{
-                handleAddtoCart(catwithid.data[0],quantity)
+                handleAddtoCart(product,quantity)
                 setQuantity(1)
               }}>
                 <FaCartPlus size={20} />
@@ -86,7 +78,7 @@ export default function SingleProduct() {
             <div className="info-item">
               <span className="text-bold">
                 Category:{" "}
-                <span>{product.categories?.data[0]?.attributes?.title}</span>
+                <span>{product.category}</span>
               </span>
               <span className="text-bold">
                 Share:

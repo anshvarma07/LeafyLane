@@ -18,9 +18,8 @@ export default function Home() {
 
 
   const getCategories =()=>{
-    fetchDataFromApi("/api/categories")
+    fetchDataFromApi("/products/categories")
     .then(res => {
-      // console.log(res);
       setCategories(res)
     })
   }

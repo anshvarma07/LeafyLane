@@ -13,23 +13,23 @@ export default function CartItem() {
           <div key={item.id} className="search-result-item">
           {console.log()}
             <div className="image-container">
-              <img src={item.attributes.img} alt="" />
+              <img src={item.product.image} alt="" />
             </div>
             <div className="prod-details">
                 
-              <span className="name">{item.attributes.title} Plant</span>
+              <span className="name">{item.product.title} Plant</span>
               <MdClose className="close-btn" onClick={()=>handleRemoveFromCart(item)}/>
               <div className="quantity-buttons">
                 <span onClick={()=>handleCartProductQuantity('dec',item)}>-</span>
-                <span>{item.attributes.quantity}</span>
+                <span>{item.quantity}</span>
                 <span onClick={()=>handleCartProductQuantity('inc',item)}>+</span>
               </div>
               <div className="text">
-                <span>{item.attributes.quantity}</span>
+                <span>{item.quantity}</span>
                 <span>x</span>
                 <span className="highlight">
-                  <span>&#8377;{item.attributes.Price}</span>
-                  <span>=&#8377;{item.attributes.Price*item.attributes.quantity}</span>
+                  <span>&#8377;{item.product.price}</span>
+                  <span>=&#8377;{item.product.price*item.quantity}</span>
                 </span>
               </div>
             </div>
