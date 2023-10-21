@@ -22,7 +22,7 @@ const Category = ({ category }) => {
       <div className="categories">
       {/* Needs a fix in navigating */}
         {category?.map((item) => (
-          <div key={item} className="category" onClick={()=>navigate(`/category`)}>
+          <div key={item} className="category" onClick={()=>navigate(`/category/${item}`)}>
           <div>{item}</div>
           {/* <img src={item} border='0' alt='INDOOR1'/> */}
           </div>

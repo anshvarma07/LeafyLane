@@ -64,9 +64,8 @@ const AppContext =({children})=>{
 
     const handleRemoveFromCart =(product)=>{
         let items = [...cartItems]
-        items=items.filter((p) => p.id !== product.id)
+        items=items.filter((p) => p.product.id !== product.product.id)
         setCartItems(items);
-
     }
 
     const handleProductQuantity =(type,product)=>{}

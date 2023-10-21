@@ -2,6 +2,7 @@ import React, { useState , useEffect } from 'react';
 import Product from './Product/Product';
 import "./Products.scss";
 import { fetchDataFromApi } from '../../utils/api';
+import Loader from '../Loader/Loader';
 
 export default function Products({innerPage, headingText }) {
   const [products,setProducts]=useState(null)
@@ -19,10 +20,10 @@ export default function Products({innerPage, headingText }) {
       });
     },[])
 
-  // if (products === undefined || !Array.isArray(products)) {
-  //   // Render a loading state or return null if desired
-  //   return null;
-  // }
+  if (products === undefined || !Array.isArray(products)) {
+    <Loader />
+    return null;
+  }
 
 
 

@@ -93,7 +93,8 @@
         }
 
         .cart-footer {
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-top: 5px solid rgba(0, 0, 0, 0.1);
+            padding-top: 10px;
             .subtotal {
                 padding: 20px 15px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -141,4 +142,9 @@
     100% {
         transform: translateX(0);
     }
+}
+
+
+.overflow-hidden{
+    overflow-y: scroll;
 }
