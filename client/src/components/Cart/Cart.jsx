@@ -16,34 +16,6 @@ export default function Cart({ setShowCart }) {
 
 
   const navigate = useNavigate()
-  const stripePromise = loadStripe('pk_test_51NE8uTSANAXgkaBoEwKI5vwBp24Rx64J8NednS2uWIwoT2Z1IXimrjwZ296JIlUxciLFBvuT8SO3ZBAHOlf52qqU00AVQMnBvE');
-  const makeRequest = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-    headers: {
-      Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
-    },
-  });
-  // const product={
-  //   "price": 19.99,
-  //   "title": "Example Product",
-  //   "quantity": 10
-  // }
-  // const handlePayment=async()=>{
-  //   try {
-  //     const stripe=await stripePromise;
-  //     const res=await makeRequest.post("/api/orders",{
-  //       product,
-  //     })
-  //   await stripe.redirectToCheckout({
-  //     sessionId:res.data.stripeSession.id
-  //   })
-
-  //   } catch (error) {
-  //     console.log(error)
-
-  //   }
-  // }
-
 
 
   return (
